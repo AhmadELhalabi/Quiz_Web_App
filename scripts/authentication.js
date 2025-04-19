@@ -43,3 +43,25 @@ registerForm.addEventListener('submit', (e) => {
     registerForm.reset();
   });
   
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+  
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+  
+    if (email === 'admin@quiz.com' && password === 'admin123') {
+      localStorage.setItem('loggedInUser', 'admin');
+      window.location.href = 'pages/dashboard.html';
+      return;
+    }
+  
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const user = users.find(user => user.email === email && user.password === password);
+  
+    if (user) {
+      localStorage.setItem('loggedInUser', email);
+      window.location.href = 'pages/home.html';
+    } else {
+      alert('Invalid credentials');
+    }
+  });
