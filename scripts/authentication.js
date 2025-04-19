@@ -19,4 +19,27 @@ loginTab.addEventListener('click', () => {
     registerForm.classList.add('active');
     loginForm.classList.remove('active');
   });
+
+
+registerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+  
+    const email = document.getElementById('register-email').value;
+    const password = document.getElementById('register-password').value;
+  
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+  
+   
+    const existingUser = users.find(user => user.email === email);
+    if (existingUser) {
+      alert('User already exists');
+      return;
+    }
+  
+    users.push({ email, password, scores: [] });
+    localStorage.setItem('users', JSON.stringify(users));
+  
+    alert('Registered successfully!');
+    registerForm.reset();
+  });
   
