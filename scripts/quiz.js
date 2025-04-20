@@ -37,4 +37,27 @@ window.addEventListener('DOMContentLoaded', () => {
     
         questionContainer.appendChild(qDiv);
       });
+
+      submitBtn.addEventListener('click', () => {
+        let score = 0;
+    
+        quiz.questions.forEach((q, index) => {
+          const selected = document.querySelector(`input[name="question${index}"]:checked`);
+          if (selected && selected.value === q.answer) {
+            score++;
+          }
+        });
+
+        resultPara.textContent = `You scored ${score} out of ${quiz.questions.length}`;
+        backBtn.style.display = 'inline-block';
+    
+        const user = localStorage.getItem('loggedInUser');
+        if (user && user !== 'admin') {
+          const scores = JSON.parse(localStorage.getItem('scores')) || {};
+          scores[user] = scores[user] || {};
+          scores[user][quiz.title] = score;
+          localStorage.setItem('scores', JSON.stringify(scores));
+        }
+      });
+      
 })
