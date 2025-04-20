@@ -16,4 +16,13 @@ window.addEventListener('DOMContentLoaded', () => {
       quizList.innerHTML = '<li>No quizzes available yet.</li>';
       return;
     }
+    
+    quizzes.forEach((quiz, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span>${quiz.title}</span>
+          <button onclick="startQuiz(${index})">Start Quiz</button>
+        `;
+        quizList.appendChild(li);
+      });
 })
