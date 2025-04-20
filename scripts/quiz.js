@@ -59,5 +59,8 @@ window.addEventListener('DOMContentLoaded', () => {
           localStorage.setItem('scores', JSON.stringify(scores));
         }
       });
-      
+
+      backBtn.addEventListener('click', () => {
+        window.location.href = 'home.html';
+      });
 })
