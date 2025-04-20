@@ -13,4 +13,28 @@ window.addEventListener('DOMContentLoaded', () => {
         submitBtn.style.display = 'none';
         return;
     }
+
+    quiz.questions.forEach((q, index) => {
+        const qDiv = document.createElement('div');
+        qDiv.classList.add('question-block');
+    
+        const qTitle = document.createElement('p');
+        qTitle.textContent = `Q${index + 1}: ${q.question}`;
+        qDiv.appendChild(qTitle);
+    
+        q.options.forEach((opt, i) => {
+          const label = document.createElement('label');
+          label.classList.add('option-label');
+          const input = document.createElement('input');
+          input.type = 'radio';
+          input.name = `question${index}`;
+          input.value = opt;
+          label.appendChild(input);
+          label.append(` ${opt}`);
+          qDiv.appendChild(label);
+          qDiv.appendChild(document.createElement('br'));
+        });
+    
+        questionContainer.appendChild(qDiv);
+      });
 })
