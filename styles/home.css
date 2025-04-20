@@ -1,0 +1,17 @@
+.greeting {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #444;
+  }
+  
+.quizList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+.quizList button {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
