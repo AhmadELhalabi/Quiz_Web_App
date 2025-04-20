@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded', () => {
       quizList.innerHTML = '<li>No quizzes available yet.</li>';
       return;
     }
-    
+
     quizzes.forEach((quiz, index) => {
         const li = document.createElement('li');
         li.innerHTML = `
@@ -26,3 +26,8 @@ window.addEventListener('DOMContentLoaded', () => {
         quizList.appendChild(li);
       });
 })
+
+function startQuiz(index) {
+    localStorage.setItem('currentQuizIndex', index);
+    window.location.href = 'quiz.html';
+  }
