@@ -7,5 +7,13 @@ window.addEventListener('DOMContentLoaded', () => {
       window.location.href = '../index.html';
       return;
     };
-
+    
+    userGreeting.textContent = `Hello, ${user}! Choose a quiz to begin.`;
+  
+    const quizzes = JSON.parse(localStorage.getItem('quizzes')) || [];
+  
+    if (quizzes.length === 0) {
+      quizList.innerHTML = '<li>No quizzes available yet.</li>';
+      return;
+    }
 })
