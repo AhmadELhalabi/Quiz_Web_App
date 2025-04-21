@@ -1,0 +1,30 @@
+.dashboard-title {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+.user-scores-container {
+    width: 90%;
+    margin: 0 auto;
+    overflow-x: auto;
+  }
+  
+.user-score-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+  }
+  
+.user-score-table th,
+.user-score-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+.user-score-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
