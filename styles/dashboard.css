@@ -1,30 +1,57 @@
 .dashboard-title {
-    text-align: center;
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
+  text-align: center;
+  font-size: 2em; 
+  color: var(--text-color);
+  margin-bottom: 30px;
+}
+
 .user-scores-container {
-    width: 90%;
-    margin: 0 auto;
-    overflow-x: auto;
-  }
-  
+  width: 100%; 
+  margin: 0 auto;
+  overflow-x: auto; 
+  border: 1px solid var(--border-color); 
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
 .user-score-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-  }
-  
+  width: 100%;
+  border-collapse: collapse; 
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+}
+
 .user-score-table th,
 .user-score-table td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-  }
-  
+  border: 1px solid var(--border-color); 
+  padding: 12px 15px; 
+  text-align: left; 
+  vertical-align: middle; 
+}
+
 .user-score-table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
+  background-color: #f1f3f5; 
+  font-weight: 600; 
+  color: var(--text-color);
+  text-align: center; 
+}
+
+
+.user-score-table tbody tr:nth-child(odd) {
+  background-color: #f8f9fa; 
+}
+
+.user-score-table tbody tr:hover {
+  background-color: #e9ecef; 
+}
+
+
+.user-score-table td:first-child { 
+  font-weight: 500;
+}
+
+
+.signOutBtn {
+  display: block;
+  margin: 30px auto 0 auto; 
+}
