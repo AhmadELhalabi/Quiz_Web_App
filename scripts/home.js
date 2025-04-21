@@ -31,3 +31,9 @@ function startQuiz(index) {
     localStorage.setItem('currentQuizIndex', index);
     window.location.href = 'quiz.html';
   }
+
+const signOutBtn = document.getElementById('signOutBtn');
+signOutBtn.addEventListener('click', () => {
+  localStorage.removeItem('loggedInUser'); 
+  window.location.href = '../index.html';  
+});

@@ -26,3 +26,9 @@ window.addEventListener('DOMContentLoaded', () => {
       tableBody.appendChild(row);
     })
 })
+
+const signOutBtn = document.getElementById('signOutBtn');
+signOutBtn.addEventListener('click', () => {
+  localStorage.removeItem('loggedInUser'); 
+  window.location.href = '../index.html';
+})

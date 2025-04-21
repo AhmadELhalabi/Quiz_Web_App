@@ -48,3 +48,8 @@ h1, h2 {
     width: 150px; 
     height: auto;
   }
+
+  .signout-btn{
+    font-size: 14px;
+    padding: 6px 12px;
+  }
