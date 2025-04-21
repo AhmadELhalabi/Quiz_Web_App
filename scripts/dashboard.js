@@ -1,20 +1,23 @@
 window.addEventListener('DOMContentLoaded', () => {
     const users = JSON.parse(localStorage.getItem('users')) || [];
-    let scores = JSON.parse(localStorage.getItem('scores'));
-  
-    if (!Array.isArray(scores)) {
-      scores = [];
-    }
+    const scores = JSON.parse(localStorage.getItem('scores')) || {};;
   
     const tableBody = document.getElementById('userScoresBody');
     tableBody.innerHTML = '';
 
     users.forEach(user => {
-        const userScores = scores.filter(score => score.username === user.email);
-        const scoreText = userScores.length
-          ? userScores.map(s => `${s.quizTitle}: ${s.score}`).join(', ')
-          : 'No scores yet';
+        const userScores = scores[user.email] || null ;
+        let scoreText = 'No scores yet';
 
+        if (userScores && typeof userScores === 'object') {
+            const entries = Object.entries(userScores);
+            if (entries.length > 0) {
+              scoreText = entries
+                .map(([quizTitle, score]) =>`${quizTitle}: ${score}`)
+                .join(', ');
+            }
+          }
+      
           const row = document.createElement('tr');
           row.innerHTML = `
           <td>${user.email}</td>
